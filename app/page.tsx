@@ -4,6 +4,11 @@ import { Ph } from "@/components/Ph";
 import { ArchDefs } from "@/components/Arch";
 import { Room } from "@/components/Room";
 import { Slider } from "@/components/Slider";
+function Stars({ v }: { v: number }) {
+  return (<span role="img" aria-label={`${v} out of 5 stars`} className="relative inline-block text-2xl leading-none">
+    <span className="text-ink/20">★★★★★</span>
+    <span className="absolute inset-y-0 left-0 overflow-hidden text-veneer" style={{ width: `${(v / 5) * 100}%` }}>★★★★★</span></span>);
+}
 export default function Home() {
   const hero = projects[0];
   return (<main>
@@ -11,16 +16,19 @@ export default function Home() {
   <ArchDefs />
   <div className="mx-auto grid max-w-7xl items-center gap-10 md:grid-cols-12">
     <div className="md:col-span-6">
-      <h1 className="font-display text-6xl leading-[0.98] md:text-8xl">
-        {site.name.split(" ")[0]}<br />{site.name.split(" ").slice(1).join(" ")}
-      </h1>
-      <p className="mt-6 max-w-md text-lg">{site.tagline}</p>
-      <p className="mt-3 text-sm">Tangra, Kolkata. Google rating {site.rating} from {site.reviews} reviews.</p>
+      <p className="font-display text-xl">{site.name}</p>
+      <h1 className="mt-3 font-display text-4xl leading-[1.05] md:text-6xl">{site.headline}</h1>
+      <p className="mt-5 max-w-md text-lg">{site.tagline}</p>
       <div className="mt-8 flex flex-wrap gap-3">
-        <Link href="/projects" className="bg-ink px-6 py-3 text-paper">See the work</Link>
-        <a href={wa("Hi, I found your website and would like to talk about a project.")} className="border-2 border-ink px-6 py-3">Message us on WhatsApp</a>
+        <a href={wa("Hi, I found your website and would like to talk about a project.")} className="bg-ink px-6 py-3 text-paper">Message us on WhatsApp</a>
+        <Link href="/projects" className="border-2 border-ink px-6 py-3">See the work</Link>
       </div>
-    </div>
+      <div className="mt-8 max-w-md border-t border-ink/25 pt-5">
+        <p className="flex flex-wrap items-center gap-x-3"><Stars v={site.rating} /><span className="font-display text-3xl">{site.rating}</span><span>from {site.reviews} Google reviews</span></p>
+        <p className="mt-3">“{testimonials[0].quote}”</p>
+        <p className="text-sm">{testimonials[0].name}, Google review</p>
+      </div>
+  </div>
     <div className="md:col-span-6">
       <div className="group relative isolate mx-auto max-w-md">
         <div aria-hidden className="cove-in absolute -inset-10 -z-10" style={{ background: "radial-gradient(closest-side, rgba(227,161,60,.5), transparent)" }} />
