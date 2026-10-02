@@ -11,7 +11,7 @@ export default function Root({ children }: { children: React.ReactNode }) {
   return (<html lang="en" className={`${display.variable} ${body.variable}`} style={vars}><body>
     <header className="flex flex-wrap items-center justify-between gap-x-6 gap-y-2 px-5 py-4 md:px-10">
       <Link href="/" className="font-display text-xl">{site.name} <span lang="bn" className="ml-2 text-sm opacity-70">{site.bn}</span></Link>
-      <nav className="flex gap-5 text-sm"><Link href="/projects">Work</Link><Link href="/estimate">Estimate</Link><Link href="/contact">Contact</Link>
+      <nav className="flex gap-5 text-sm"><Link href="/">Home</Link><Link href="/projects">Work</Link><Link href="/estimate">Estimate</Link><Link href="/contact">Contact</Link>
         <a href={wa("Hi, I found your website and would like to talk about a project.")} className="font-semibold underline decoration-cove decoration-2 underline-offset-4">WhatsApp</a></nav>
     </header>{children}
     <footer className="mt-24 bg-marble px-5 py-10 text-paper md:px-10">
