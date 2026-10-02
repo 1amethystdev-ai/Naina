@@ -1,7 +1,8 @@
 // Rebrand = edit this file + swap images. Image paths: set `img` on a project (e.g. "/images/tangra-3bhk.jpg").
 export const site = {
   name: "Naina Home Decore", bn: "নয়না হোম ডেকোর", initials: "NH",
-  tagline: "Flats, houses and shopfronts across Kolkata, designed and fitted by one team.",
+  headline: "Rooms planned to the last detail, finished on time.",
+  tagline: "Home interiors and room makeovers in Tangra and across Kolkata.",
   address: "14/13 Asgar Mistry Ln, Seal Lane, Tangra, Kolkata 700046",
   phone: "+918240708314", phoneDisplay: "+91 82407 08314",
   email: "hello@nainahomedecore.in", hours: "Mon–Sat, 10 am to 7 pm",
