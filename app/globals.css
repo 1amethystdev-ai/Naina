@@ -1,0 +1,6 @@
+@tailwind base;@tailwind components;@tailwind utilities;
+body{background:var(--c-ground);color:var(--c-ink);font-family:var(--f-body),system-ui,sans-serif;line-height:1.6}
+:focus-visible{outline:3px solid var(--c-cove);outline-offset:3px}
+@keyframes cove{from{opacity:0}to{opacity:1}}
+.cove-in{animation:cove 1.6s ease-out both}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
