@@ -2,7 +2,7 @@
 import { useState } from "react";
 export function Slider({ before, after, labels = ["Plan", "Finished"], className = "" }: { before: React.ReactNode; after: React.ReactNode; labels?: [string, string]; className?: string }) {
   const [p, setP] = useState(50);
-  const tag = "absolute top-3 bg-ink/80 px-2 py-1 text-xs text-paper";
+  const tag = "absolute bottom-3 bg-ink/80 px-2 py-1 text-xs text-paper";
   return (<div className={`relative select-none overflow-hidden focus-within:outline focus-within:outline-[3px] focus-within:outline-cove ${className}`}>
     <div>{after}</div>
     <div className="absolute inset-0" style={{ clipPath: `inset(0 ${100 - p}% 0 0)` }}>{before}</div>
