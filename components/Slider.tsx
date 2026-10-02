@@ -7,7 +7,8 @@ export function Slider({ before, after, labels = ["Plan", "Finished"], className
     <div>{after}</div>
     <div className="absolute inset-0" style={{ clipPath: `inset(0 ${100 - p}% 0 0)` }}>{before}</div>
     <div className="absolute inset-y-0 w-0.5 bg-cove" style={{ left: `${p}%` }} />
-    <input type="range" min={0} max={100} value={p} onChange={(e) => setP(+e.target.value)} aria-label={`Drag to compare ${labels[0]} and ${labels[1]}`} className="absolute inset-0 h-full w-full cursor-ew-resize opacity-0" />
+    <div aria-hidden className="absolute top-1/2 grid h-11 w-11 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full bg-cove text-lg text-ink shadow" style={{ left: `${p}%` }}>⇄</div>
+    <input type="range" min={0} max={100} value={p} onChange={(e) => setP(+e.target.value)} aria-label={`Drag to compare ${labels[0]} and ${labels[1]}`} className="absolute inset-0 h-full w-full cursor-ew-resize opacity-0" style={{ touchAction: "pan-y" }} />
     <span className={`${tag} left-3`}>{labels[0]}</span><span className={`${tag} right-3`}>{labels[1]}</span>
   </div>);
 }
