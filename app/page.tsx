@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { site, projects, services, testimonials, wa } from "@/content.config";
 import { Ph } from "@/components/Ph";
-import { Slider, Plan } from "@/components/Slider";
 import { ArchDefs } from "@/components/Arch";
 import { Room } from "@/components/Room";
 import { Slider } from "@/components/Slider";
