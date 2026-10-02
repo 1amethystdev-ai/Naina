@@ -2,32 +2,36 @@ import Link from "next/link";
 import { site, projects, services, testimonials, wa } from "@/content.config";
 import { Ph } from "@/components/Ph";
 import { Slider, Plan } from "@/components/Slider";
-import { ArchDefs, ArchOutline, Ornament } from "@/components/Arch";
+import { ArchDefs } from "@/components/Arch";
+import { Room } from "@/components/Room";
+import { Slider } from "@/components/Slider";
 export default function Home() {
   const hero = projects[0];
   return (<main>
-    <section className="jali bg-marble text-paper">
+    <section className="overflow-hidden px-5 pb-16 pt-6 md:px-10 md:pb-24">
   <ArchDefs />
-  <div className="mx-auto grid max-w-7xl items-center gap-10 px-5 py-14 md:grid-cols-12 md:px-10 md:py-20">
+  <div className="mx-auto grid max-w-7xl items-center gap-10 md:grid-cols-12">
     <div className="md:col-span-6">
-      <p lang="bn" className="text-lg text-cove">{site.bn}</p>
-      <h1 className="mt-2 font-display text-5xl leading-[1.05] md:text-7xl">{site.name}</h1>
-      <Ornament />
-      <p className="max-w-md text-lg">{site.tagline}</p>
-      <p className="mt-3 text-sm opacity-80">Tangra, Kolkata. Google rating {site.rating} from {site.reviews} reviews.</p>
+      <h1 className="font-display text-6xl leading-[0.98] md:text-8xl">
+        {site.name.split(" ")[0]}<br />{site.name.split(" ").slice(1).join(" ")}
+      </h1>
+      <p className="mt-6 max-w-md text-lg">{site.tagline}</p>
+      <p className="mt-3 text-sm">Tangra, Kolkata. Google rating {site.rating} from {site.reviews} reviews.</p>
       <div className="mt-8 flex flex-wrap gap-3">
-        <Link href="/projects" className="bg-cove px-6 py-3 text-ink">See the work</Link>
-        <a href={wa("Hi, I found your website and would like to talk about a project.")} className="border border-cove px-6 py-3">Message us on WhatsApp</a>
+        <Link href="/projects" className="bg-ink px-6 py-3 text-paper">See the work</Link>
+        <a href={wa("Hi, I found your website and would like to talk about a project.")} className="border-2 border-ink px-6 py-3">Message us on WhatsApp</a>
       </div>
     </div>
-    <div className="cove-in md:col-span-6">
-      <div className="group relative mx-auto max-w-md p-3">
-        <ArchOutline />
-        <div style={{ clipPath: "url(#arch)" }}>
-          <Slider before={<Plan />} after={<Ph tones={hero.tones} ratio="4/5" alt={`${hero.title}, finished room`} src={hero.img} />} />
+    <div className="md:col-span-6">
+      <div className="group relative isolate mx-auto max-w-md">
+        <div aria-hidden className="cove-in absolute -inset-10 -z-10" style={{ background: "radial-gradient(closest-side, rgba(227,161,60,.5), transparent)" }} />
+        <div className="bg-marble p-[10px] group-focus-within:bg-cove" style={{ clipPath: "url(#arch)" }}>
+          <div style={{ clipPath: "url(#arch)" }}>
+            <Slider before={<Room drawn />} after={hero.img ? <Ph tones={hero.tones} ratio="4/5" alt={`${hero.title}, finished room`} src={hero.img} /> : <Room />} />
+          </div>
         </div>
       </div>
-      <p className="mt-2 text-center text-sm opacity-80">Drag across: the plan on the left, the finished dining room on the right.</p>
+      <p className="mt-3 text-center text-sm">Drag across: the drawing becomes the finished dining wall.</p>
     </div>
   </div>
 </section>
